@@ -70,16 +70,21 @@ ggplot(mean.df, aes(team, kda)) + geom_bar(stat="identity")
 
 
 
-
-
-
-
-
-
-
-
-
-
+install.packages("XML")
+library(XML)
+Sys.setlocale("LC_ALL","English")
+df <- readHTMLTable("http://lol.inven.co.kr/dataninfo/match/teamTotal.php", 
+                    header = T)
+df
+df <- df[[2]]
+str(df)
+View(df)
+df <- df[, -c(1,3,4,5,7,8,9,10,11,12,13)]
+names(df) <- c("team name", "win ratio")
+View(df)
+arrange(desc(df))
+df %>% arrange(desc(df)) %>% 
+  head(5)
 
 
 

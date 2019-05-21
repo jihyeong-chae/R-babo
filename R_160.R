@@ -16,4 +16,4 @@ midwest_a %>%
   mutate(ratio_asian = (popasian / poptotal)* 100) %>% 
   arrange(ratio_asian) %>% 
   select(state, county, ratio_asian) %>% 
-  head(10)
+  head(10)z
